@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Document</title>
+</head>
+<body>
+<br/>
+<br/>
+<!-- table is from here  -->
+<div  style="width:99%;">
+<form [formGroup]="userForm" #myform="ngForm" (ngSubmit)="save(myform.value)" style="width:99%; margin-left: 2px;">
+<div class="row">
+<div class="col-sm-3">
+      <label for="">Publisher:</label>
+      <select class="form-select" formControlName="publisher" name="publisher"  #publisher (change)="selected(publisher.value)" >
+      <option value="">choose</option>
+      <option *ngFor="let items of lists" >
+      {{items.id}} <!--Here Get Data From Dropdown from json files-->
+      {{items.name}}
+      </option>
+       </select>
+        &nbsp;
+  </div>
+  <div class="col-sm-3">
+      <label for="">Group Display:</label>
+        <select class="form-select" formControlName="GroupDisplay" name="GroupDisplay" #Groupdisplay (change)="selected(Groupdisplay.value)"  >
+          <option value="">choose</option>
+          <option *ngFor="let items of Group">
+            {{items.id}} <!--Here Get Data From Dropdown from json files-->
+            {{items.name}}
+           </option>
+          </select>
+        &nbsp;
+  </div>
+  <div class="col-sm-3">
+      <label for="">Ad Unit:</label>
+        <select class="form-select" formControlName="AddUnitdrp" name="Addunit" #addunit  (change)="selected(addunit.value)">
+          <option value="">choose</option>
+          <option *ngFor="let items of add">
+           {{items.id}} <!--Here Get Data From Dropdown from json files-->
+           {{items.name}}
+          </option>
+          </select>
+        &nbsp;
+    </div>
+    <div class="col-sm-3">
+      <label for="">Creative:</label>
+        <select class="form-select" formControlName="creative" name="creative" #creative (change)="selected(creative.value)" >
+          <option value="">choose</option>
+          <option *ngFor="let items of create">
+          {{items.id}}  <!--Here Get Data From Dropdown from json files-->
+          {{items.name}}
+          </option>
+         </select>
+        &nbsp;
+    </div>
+  </div>
+  <div class="mt-5">
+              <div class="form-row">
+                  <table id="tab" class="table">
+                      <thead>
+                          <tr>
+                              <th>DATE(MM-DD-YY)</th>
+                              <th>LINEITEMID</th>
+                              <th>CAMPAIGNID</th>
+                              <th>IMPR/DAY/SCREEN</th>
+                              <th>DURATION</th>
+                              <th>RANGE_DIFF</th>  
+                              <th>AD_TYPE_ID</th>
+                              <th>DSP_ID</th>
+                              <th>ADV_FEE</th>
+                              <th>Action</th> <!-- this is row head data-->
+                              </tr>
+                              <!--from here input fields are place for tables-->
+                              <tr *ngFor='let id of count'>
+                              <td> <mat-form-field appearance="fill">       <!-- use angular material Date picker for date input given range  -->
+                                    <mat-date-range-input [rangePicker]="picker">
+                                    <input formControlName="startdate" name="startdate" matStartDate placeholder="Start date">
+                                    <input formControlName="enddate" name="enddate" matEndDate placeholder="End date">
+                                  </mat-date-range-input>
+                                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                  <mat-date-range-picker #picker></mat-date-range-picker>
+                                </mat-form-field>
+                              </td> 
+                              <td><input class="ip"  type="text" formControlName ="lineitemid" name="lineitemid"  class="form-control" placeholder="" style="margin-bottom: 20px;">
+                              </td>
+                              <td><input type="text" formControlName="camp"  name="camp" class="form-control" placeholder="" style="margin-bottom: 20px;">
+                              </td>
+                              <td><input type="text" formControlName="impr" name="impr" class="form-control" placeholder="" style="margin-bottom: 20px; width: 80px;">
+                              </td>
+                              <td><input type="text" formControlName="duration" name="duration" class="form-control" placeholder="" style="margin-bottom: 20px; width: 109px;">
+                              </td>
+                              <td><input type="text" formControlName="range" name="range" class="form-control" placeholder="" style="margin-bottom: 20px;">
+                              </td>
+                              <td><input type="text" formControlName="adtype" name="adtype" class="form-control" placeholder="" style="margin-bottom: 20px;" >
+                              </td>
+                              <td><input type="text" formControlName="dspid"  name="dspid" class="form-control" placeholder=""  style="margin-bottom: 20px; width: 100px;">
+                              </td>
+                              <td><input type="text" formControlName="adfee"  name="adfee" class="form-control" placeholder="" style="margin-bottom: 20px;">
+                              </td>
+                              <td>
+                              <button type="button" (click)="remove(id)" class="btn btn-danger" style="margin-bottom: 20px;"><i class="fa fa-trash-o" style="font-size:20px"></i></button> <!--this button is for remove additional added table row-->
+                              </td>
+                          </tr>
+                      </thead>
+                  </table>
+                  <div class="form-row mt -4">
+                      <div class="col-md-6">
+                          <button type="button" (click)="addItem()" class="btn btn-primary" style="margin-left: 10px;">ADD</button> <!-- button for add additonal table row  -->
+                          &nbsp;
+                          <button (click)="save(userForm.value)" type="submit"  class="btn btn-success">Save</button> <!-- Save Button-->
+                          &nbsp;
+                          <button  type="submit" class="btn btn-link" (click)="resetform()">clear</button> <!-- clear button for clear the data of form fields-->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </form>
+      <div class="col-md-8 mt-4 mb-4">
+      </div>
+  </div>
+  
+  
+  
+  

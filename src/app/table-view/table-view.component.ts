@@ -53,7 +53,7 @@ export class TableViewComponent {
   public tableRecords = [];
   public pageStartCount = 0;
   public pageEndCount = 5;
-  public totalPageCount = 0;
+  public totalPageCount = 10;
   public currentPage = 1;
   // public screenSize=19;
   // public   tableSizes: any = [3, 6, 9, 12];

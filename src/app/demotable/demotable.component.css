@@ -1,0 +1,35 @@
+#tab {
+    font-family:  'Calibri';
+  
+   }
+    #tab td, #tab th {
+      border: 1px solid #ddd;
+      padding: 2px;
+      margin: 0;
+      padding-bottom: px;
+ }
+ #tab tr:nth-child(even){background-color: #f2f2f2;}
+ #tab tr {background-color: #ddd;}
+ #tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #b5bcc4;
+    color: rgb(44, 39, 39);
+    font-size: 11px;
+    font-family: 'Calibri';
+   }
+  .car{
+      width:300px;
+  }
+  label{
+    font-size: 20px;
+    font-family: ' Calibri';
+    
+  }
+  .date{
+    width:100px;
+  }
+ .row{
+  margin-top: 15px; padding:20px;
+ }

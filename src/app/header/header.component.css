@@ -1,6 +1,6 @@
 .header {
   overflow: hidden;
-  position: relative;
+  position: fixed;
   padding: 1.6rem 1rem;
   background:rgb(245, 145, 14);
   width: 100%;

@@ -18,7 +18,16 @@ import { TableViewComponent } from './table-view/table-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbPaginationModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
+
+
+
+
+
+import { MatNativeDateModule } from '@angular/material/core';
 import { 
 	IgxAvatarModule,
 	IgxBadgeModule,
@@ -30,6 +39,7 @@ import {
 	IgxRippleModule,
 	IgxSwitchModule
  } from "igniteui-angular";
+import { DemotableComponent } from './demotable/demotable.component';
 // import { PagingSampleComponent } from "./grid/grid-paging-sample/grid-paging-sample.component";
 // import { IgxPreventDocumentScrollModule } from "./directives/prevent-scroll.directive";
 
@@ -44,6 +54,9 @@ import {
     DashboardComponent,
     SidenavComponent,
     TableViewComponent,
+    DemotableComponent,
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -52,13 +65,18 @@ import {
     // * MATERIAL IMPORTS
     MatSidenavModule,
     MatToolbarModule,
+    MatNativeDateModule,
     MatMenuModule,
+    
     MatIconModule,
     MatDividerModule,
+    MatFormFieldModule,
     MatListModule,
     NgxPaginationModule,
     HttpClientModule,
     FormsModule,
+    MatDatepickerModule,
+    MatInputModule,
     NgbPaginationModule,
     NgbModule,
     ReactiveFormsModule,
